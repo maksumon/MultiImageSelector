@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:paddingTop="10dp"
     android:paddingBottom="10dp"
@@ -15,7 +16,7 @@
         tools:src="@drawable/mis_btn_back"
         android:layout_gravity="center_vertical"
         android:scaleType="centerInside"
-        android:src="@drawable/mis_default_error"
+        app:srcCompat="@drawable/mis_default_error"
         android:layout_width="@dimen/mis_folder_cover_size"
         android:layout_height="@dimen/mis_folder_cover_size" />
 
@@ -66,7 +67,7 @@
         android:id="@+id/indicator"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="20dp"
-        android:src="@drawable/mis_default_check"
+        app:srcCompat="@drawable/mis_default_check"
         android:layout_gravity="center_vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
