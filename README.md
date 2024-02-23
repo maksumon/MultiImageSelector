@@ -23,15 +23,18 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.lovetuzitong:MultiImageSelector:1.2'
+    implementation "com.github.maksumon:MultiImageSelector:1.0.1"
 }
 ```
 
 * Step 1 
 Set your `AndroidManifest.xml` as below:
 ```xml
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+<uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
 
 <application
 
@@ -45,7 +48,7 @@ Set your `AndroidManifest.xml` as below:
 ```
 
 * Step 2
-Call image selector simplest in your code, eg. ( From `version-1.1` )
+Call image selector simplest in your code, eg. ( From `version-1.0.1` )
 
 ``` java
 // Multi image selector form an Activity
