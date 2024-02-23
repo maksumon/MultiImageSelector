@@ -1,14 +1,15 @@
 package me.nereo.multi_image_selector;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
 
@@ -73,7 +74,7 @@ public class MultiImageSelector {
         return sSelector;
     }
 
-    public void start(Activity activity, int requestCode){
+    public void start(AppCompatActivity activity, int requestCode){
         final Context context = activity;
         if(hasPermission(context)) {
             activity.startActivityForResult(createIntent(context), requestCode);
@@ -92,8 +93,11 @@ public class MultiImageSelector {
     }
 
     private boolean hasPermission(Context context){
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN){
-            // Permission was added in API Level 16
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+            return ContextCompat.checkSelfPermission(context, Manifest.permission.READ_MEDIA_IMAGES)
+                    == PackageManager.PERMISSION_GRANTED;
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
             return ContextCompat.checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE)
                     == PackageManager.PERMISSION_GRANTED;
         }
