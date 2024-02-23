@@ -142,6 +142,9 @@ class CustomerActivity extends Activity implements MultiImageSelectorFragment.Ca
 
 ###Change Log
 
+* 2023-2-23
+    1. Fixed. Has no permission
+
 * 2016-5-18
     1. Added. `JitPack` support
     2. Added. Convenient way to call image selector. See `Step 2`
